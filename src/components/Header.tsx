@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,11 +16,38 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { label: "Accueil", path: "/" },
-    { label: "Services", path: "/#services" },
-    { label: "À propos", path: "/about" },
-    { label: "Contact", path: "/contact" },
+    { label: "Accueil", path: "/", type: "link" },
+    { label: "Services", path: "services", type: "scroll" },
+    { label: "À propos", path: "/about", type: "link" },
+    { label: "Contact", path: "/contact", type: "link" },
   ];
+
+  const renderNavItem = (item: typeof menuItems[0]) => {
+    if (item.type === "scroll") {
+      return (
+        <ScrollLink
+          key={item.label}
+          to={item.path}
+          smooth={true}
+          duration={500}
+          className="text-white hover:text-gold transition-colors duration-300 cursor-pointer"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {item.label}
+        </ScrollLink>
+      );
+    }
+    return (
+      <Link
+        key={item.label}
+        to={item.path}
+        className="text-white hover:text-gold transition-colors duration-300"
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        {item.label}
+      </Link>
+    );
+  };
 
   return (
     <header
@@ -38,15 +66,7 @@ const Header = () => {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className="text-white hover:text-gold transition-colors duration-300"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {menuItems.map(renderNavItem)}
           </nav>
 
           <button
@@ -59,16 +79,7 @@ const Header = () => {
 
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4">
-            {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className="block py-2 text-white hover:text-gold transition-colors duration-300"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {menuItems.map(renderNavItem)}
           </nav>
         )}
       </div>

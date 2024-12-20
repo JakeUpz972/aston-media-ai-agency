@@ -1,4 +1,6 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const Hero = () => {
   return (
@@ -15,13 +17,21 @@ const Hero = () => {
             Expertise en création de sites web et solutions SAAS pour les professionnels de santé
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-gold hover:bg-gold-light text-white px-8 py-3 rounded-full flex items-center gap-2 transition-all duration-300 transform hover:scale-105">
+            <ScrollLink
+              to="services"
+              smooth={true}
+              duration={500}
+              className="bg-gold hover:bg-gold-light text-white px-8 py-3 rounded-full flex items-center gap-2 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            >
               Nos services
               <ArrowRight size={20} />
-            </button>
-            <button className="border border-gold text-gold hover:bg-gold/10 px-8 py-3 rounded-full transition-all duration-300">
+            </ScrollLink>
+            <Link
+              to="/contact"
+              className="border border-gold text-gold hover:bg-gold/10 px-8 py-3 rounded-full transition-all duration-300"
+            >
               Contactez-nous
-            </button>
+            </Link>
           </div>
         </div>
       </div>

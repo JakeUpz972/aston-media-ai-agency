@@ -21,8 +21,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="text-2xl font-montserrat font-bold text-white">
-            ASTON <span className="text-gold">MEDIA</span>
+          <a href="/" className="flex items-center gap-3">
+            <img
+              src="/lovable-uploads/0a0634ac-81bb-4988-831f-17057df2b95e.png"
+              alt="Aston Media"
+              className="h-12 w-auto"
+            />
           </a>
 
           <nav className="hidden md:flex items-center space-x-8">

@@ -1,4 +1,4 @@
-import { Globe, Database } from "lucide-react";
+import { Globe, Database, Brain, Cog, Code } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Services = () => {
@@ -17,6 +17,27 @@ const Services = () => {
         "Logiciel spécialisé pour les professionnels de santé libéraux.",
       image: "photo-1581092795360-fd1ca04f0952",
     },
+    {
+      icon: <Brain className="w-12 h-12 text-gold" />,
+      title: "Intégration IA",
+      description:
+        "Solutions d'intelligence artificielle innovantes pour optimiser vos processus métier.",
+      image: "photo-1677442136019-21000c147090",
+    },
+    {
+      icon: <Cog className="w-12 h-12 text-gold" />,
+      title: "Automatisation des Processus",
+      description:
+        "Optimisez votre efficacité opérationnelle grâce à l'automatisation intelligente.",
+      image: "photo-1518432031352-d6fc5c10da5a",
+    },
+    {
+      icon: <Code className="w-12 h-12 text-gold" />,
+      title: "Développement sur Mesure",
+      description:
+        "Solutions logicielles personnalisées répondant précisément à vos besoins.",
+      image: "photo-1555066931-4365d14bab8c",
+    },
   ];
 
   return (
@@ -31,7 +52,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}

@@ -31,10 +31,29 @@ const FAQ_DATA = [
 const ChatbotFAQ = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleClose = () => {
+    setIsOpen(false);
+    // Permet de revenir à la position précédente dans l'historique
+    if (window.history.state?.chatOpen) {
+      window.history.back();
+    }
+  };
+
+  const handleOpen = () => {
+    // Ajoute un nouvel état dans l'historique avant d'ouvrir le chat
+    window.history.pushState({ chatOpen: true }, "");
+    setIsOpen(true);
+  };
+
+  // Écoute les changements d'état de l'historique
+  window.onpopstate = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <Button
-        onClick={() => setIsOpen(true)}
+        onClick={handleOpen}
         className="fixed bottom-4 right-4 rounded-full w-14 h-14 bg-gold hover:bg-gold/90 text-black shadow-lg"
         aria-label="Ouvrir le FAQ bot"
       >
@@ -49,7 +68,7 @@ const ChatbotFAQ = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-white hover:text-gold"
               >
                 <X className="w-4 h-4" />

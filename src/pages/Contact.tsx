@@ -50,7 +50,7 @@ const Contact = () => {
                 <SelectTrigger className="w-full bg-gray-800 border-gold/20">
                   <SelectValue placeholder="Sélectionnez votre budget" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-gray-800 border border-gold/20">
                   <SelectItem value="less-1000">Moins de 1000€</SelectItem>
                   <SelectItem value="1000-2000">1000€ - 2000€</SelectItem>
                   <SelectItem value="2000-5000">2000€ - 5000€</SelectItem>

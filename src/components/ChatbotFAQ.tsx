@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,23 +31,28 @@ const FAQ_DATA = [
 const ChatbotFAQ = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handlePopState = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   const handleClose = () => {
     setIsOpen(false);
-    // Permet de revenir à la position précédente dans l'historique
     if (window.history.state?.chatOpen) {
       window.history.back();
     }
   };
 
   const handleOpen = () => {
-    // Ajoute un nouvel état dans l'historique avant d'ouvrir le chat
     window.history.pushState({ chatOpen: true }, "");
     setIsOpen(true);
-  };
-
-  // Écoute les changements d'état de l'historique
-  window.onpopstate = () => {
-    setIsOpen(false);
   };
 
   return (

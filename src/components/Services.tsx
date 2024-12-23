@@ -1,4 +1,4 @@
-import { Globe, Database, Brain, Cog, Code } from "lucide-react";
+import { Globe, Database, Brain, Cog, Code, Search, Code2, HeadsetIcon } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Services = () => {
@@ -40,6 +40,27 @@ const Services = () => {
     },
   ];
 
+  const process = [
+    {
+      icon: <Search className="w-12 h-12 text-gold" />,
+      title: "Analyse & Diagnostic",
+      description:
+        "Nous débutons par une analyse détaillée de vos flux de travail actuels pour déterminer comment l'IA peut améliorer vos processus et optimiser vos opérations.",
+    },
+    {
+      icon: <Code2 className="w-12 h-12 text-gold" />,
+      title: "Développement Sur Mesure",
+      description:
+        "Par la suite, nos développeurs créent des solutions IA adaptées spécifiquement à votre profession, en privilégiant systématiquement la qualité et la sécurité.",
+    },
+    {
+      icon: <HeadsetIcon className="w-12 h-12 text-gold" />,
+      title: "Support Continu",
+      description:
+        "Après l'installation, nous restons à vos côtés pour garantir un suivi continu, en assurant un support constant et en optimisant les solutions mises en place.",
+    },
+  ];
+
   return (
     <section id="services" className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -52,7 +73,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <div
               key={index}
@@ -75,6 +96,30 @@ const Services = () => {
                 </h3>
                 <p className="text-gray-400">{service.description}</p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-4">
+            Notre <span className="text-gold">Process</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Une approche méthodique pour votre transformation digitale
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {process.map((step, index) => (
+            <div
+              key={index}
+              className="bg-gray-900 rounded-lg border border-gold/20 hover:border-gold/40 transition-all duration-300 p-8"
+            >
+              <div className="mb-6">{step.icon}</div>
+              <h3 className="text-xl font-montserrat font-bold text-white mb-4">
+                {step.title}
+              </h3>
+              <p className="text-gray-400">{step.description}</p>
             </div>
           ))}
         </div>

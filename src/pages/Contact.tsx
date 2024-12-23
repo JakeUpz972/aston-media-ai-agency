@@ -1,5 +1,12 @@
 import Header from "../components/Header";
 import HomeButton from "../components/HomeButton";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Contact = () => {
   return (
@@ -27,6 +34,30 @@ const Contact = () => {
                 className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
                 required
               />
+            </div>
+            <div>
+              <label className="block text-white mb-2" htmlFor="phone">Téléphone</label>
+              <input
+                type="tel"
+                id="phone"
+                className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-white mb-2" htmlFor="budget">Budget</label>
+              <Select>
+                <SelectTrigger className="w-full bg-gray-800 border-gold/20">
+                  <SelectValue placeholder="Sélectionnez votre budget" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="less-1000">Moins de 1000€</SelectItem>
+                  <SelectItem value="1000-2000">1000€ - 2000€</SelectItem>
+                  <SelectItem value="2000-5000">2000€ - 5000€</SelectItem>
+                  <SelectItem value="5000-10000">5000€ - 10000€</SelectItem>
+                  <SelectItem value="more-10000">Plus de 10000€</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div>
               <label className="block text-white mb-2" htmlFor="message">Message</label>

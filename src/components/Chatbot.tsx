@@ -122,7 +122,7 @@ const Chatbot = () => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Tapez votre message..."
-                className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-gold"
+                className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-gold text-gray-900 placeholder:text-gray-500"
               />
               <button
                 type="submit"

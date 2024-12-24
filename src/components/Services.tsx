@@ -22,7 +22,7 @@ const Services = () => {
       title: "Intégration IA",
       description:
         "Solutions d'intelligence artificielle innovantes pour optimiser vos processus métier.",
-      image: "photo-1677442136019-21000c147090",
+      image: "photo-1485827404703-89b55fcc595e",
     },
     {
       icon: <Cog className="w-12 h-12 text-gold" />,

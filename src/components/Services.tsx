@@ -1,4 +1,4 @@
-import { Globe, Database, Brain, Cog, Code, Search, Code2, HeadsetIcon } from "lucide-react";
+import { Globe, Database, Brain, Cog, Code, Search, Code2, HeadsetIcon, Briefcase } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Services = () => {
@@ -37,6 +37,13 @@ const Services = () => {
       description:
         "Solutions logicielles personnalisées répondant précisément à vos besoins.",
       image: "photo-1555066931-4365d14bab8c",
+    },
+    {
+      icon: <Briefcase className="w-12 h-12 text-gold" />,
+      title: "Consulting",
+      description:
+        "Accompagnement stratégique pour votre transformation digitale et l'intégration des nouvelles technologies.",
+      image: "photo-1483058712412-4245e9b90334",
     },
   ];
 
@@ -82,7 +89,7 @@ const Services = () => {
               <div className="relative w-full h-48">
                 <AspectRatio ratio={16 / 9}>
                   <img
-                    src={`https://source.unsplash.com/${service.image}`}
+                    src={`https://images.unsplash.com/${service.image}`}
                     alt={service.title}
                     className="object-cover w-full h-full"
                   />

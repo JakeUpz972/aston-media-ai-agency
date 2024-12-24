@@ -8,7 +8,7 @@ interface Message {
 }
 
 const FAQ_DATA = {
-  "qui êtes-vous": "Nous sommes une agence spécialisée dans l'automatisation et l'intégration d'intelligence artificielle pour les professionnels de santé en libéral, principalement basés dans les territoires d'outre-mer. Notre expertise couvre la création de sites internet, le développement de solutions SaaS médicales, l'intégration d'IA, l'automatisation des processus, le développement sur mesure et le consulting.",
+  "qui êtes-vous": "Je suis Noah, votre assistant virtuel spécialisé dans l'accompagnement des professionnels de santé en Outre-mer. Je représente une agence spécialisée dans l'automatisation et l'intégration d'intelligence artificielle pour les professionnels de santé en libéral. Notre expertise couvre la création de sites internet, le développement de solutions SaaS médicales, l'intégration d'IA, l'automatisation des processus, le développement sur mesure et le consulting.",
   "pourquoi choisir": "L'automatisation et l'IA permettent d'optimiser significativement votre pratique en :\n- Réduisant le temps consacré aux tâches administratives\n- Améliorant la gestion des rendez-vous et le suivi des patients\n- Sécurisant vos données médicales\n- Facilitant la communication avec vos patients\n- Augmentant votre productivité tout en maintenant la qualité des soins",
   "service de création": "Notre service inclut :\n- La conception d'un site web professionnel et responsive\n- L'intégration d'un système de prise de rendez-vous en ligne\n- La mise en place d'un espace patient sécurisé\n- L'optimisation pour le référencement local\n- L'hébergement sécurisé des données de santé\n- La maintenance et les mises à jour régulières",
   "solution saas": "Notre solution SaaS médicale est un logiciel accessible via internet qui permet de :\n- Gérer votre agenda et vos rendez-vous\n- Tenir vos dossiers patients de manière sécurisée\n- Gérer votre facturation et vos documents administratifs\n- Assurer le suivi des patients\n- Accéder à vos données depuis n'importe quel appareil",
@@ -23,7 +23,7 @@ const FAQ_DATA = {
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { text: "Bonjour ! Comment puis-je vous aider aujourd'hui ?", isUser: false }
+    { text: "Bonjour ! Je suis Noah, votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?", isUser: false }
   ]);
   const [inputText, setInputText] = useState("");
   const { toast } = useToast();
@@ -69,7 +69,17 @@ const Chatbot = () => {
       {isOpen && (
         <div className="fixed bottom-20 right-4 w-96 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
           <div className="flex justify-between items-center bg-gold p-4 rounded-t-lg">
-            <h3 className="text-white font-semibold">Chat Assistant</h3>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/5b19a21a-3a3a-407a-b7c1-7855b9325932.png"
+                alt="Noah - Assistant virtuel"
+                className="w-10 h-10 rounded-full object-cover border-2 border-white"
+              />
+              <div>
+                <h3 className="text-white font-semibold">Noah</h3>
+                <p className="text-white/80 text-sm">Assistant virtuel</p>
+              </div>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
               className="text-white hover:text-gray-200"
@@ -83,8 +93,15 @@ const Chatbot = () => {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'} items-start gap-2`}
               >
+                {!message.isUser && (
+                  <img 
+                    src="/lovable-uploads/5b19a21a-3a3a-407a-b7c1-7855b9325932.png"
+                    alt="Noah"
+                    className="w-8 h-8 rounded-full object-cover mt-1"
+                  />
+                )}
                 <div
                   className={`max-w-[80%] p-3 rounded-lg ${
                     message.isUser

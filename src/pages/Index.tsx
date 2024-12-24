@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-import ChatbotFAQ from "../components/ChatbotFAQ";
 
 const Index = () => {
   return (
@@ -9,7 +8,6 @@ const Index = () => {
       <Header />
       <Hero />
       <Services />
-      <ChatbotFAQ />
     </div>
   );
 };

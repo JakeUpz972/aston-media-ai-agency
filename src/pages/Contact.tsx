@@ -43,8 +43,8 @@ const Contact = () => {
 
     try {
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Vous devrez remplacer ceci
-        'YOUR_TEMPLATE_ID', // Vous devrez remplacer ceci
+        'service_20xjqte',
+        'template_contact', // Vous devrez créer un template dans EmailJS et remplacer ceci par son ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -52,7 +52,7 @@ const Contact = () => {
           budget: formData.budget,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY' // Vous devrez remplacer ceci
+        'bZ74MnCVGmCRSa3qu'
       );
 
       if (result.text === 'OK') {

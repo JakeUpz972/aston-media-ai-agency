@@ -1,26 +1,8 @@
 import React, { useState } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
-
-interface Message {
-  text: string;
-  isUser: boolean;
-}
-
-const FAQ_DATA = {
-  "temps": "Les délais varient selon les services :\n- Création de site internet : 4-6 semaines\n- Intégration SaaS : 2-3 semaines\n- Automatisation des processus : 3-8 semaines selon la complexité\n- Solutions sur mesure : à définir selon le cahier des charges",
-  "durée": "Les délais varient selon les services :\n- Création de site internet : 4-6 semaines\n- Intégration SaaS : 2-3 semaines\n- Automatisation des processus : 3-8 semaines selon la complexité\n- Solutions sur mesure : à définir selon le cahier des charges",
-  "site": "Notre service de création de site internet inclut :\n- La conception d'un site web professionnel et responsive\n- L'intégration d'un système de prise de rendez-vous en ligne\n- La mise en place d'un espace patient sécurisé\n- L'optimisation pour le référencement local\n- L'hébergement sécurisé des données de santé\n- La maintenance et les mises à jour régulières",
-  "qui": "Je suis Noah, votre assistant virtuel spécialisé dans l'accompagnement des professionnels de santé en Outre-mer. Je représente une agence spécialisée dans l'automatisation et l'intégration d'intelligence artificielle pour les professionnels de santé en libéral. Notre expertise couvre la création de sites internet, le développement de solutions SaaS médicales, l'intégration d'IA, l'automatisation des processus, le développement sur mesure et le consulting.",
-  "saas": "Notre solution SaaS médicale est un logiciel accessible via internet qui permet de :\n- Gérer votre agenda et vos rendez-vous\n- Tenir vos dossiers patients de manière sécurisée\n- Gérer votre facturation et vos documents administratifs\n- Assurer le suivi des patients\n- Accéder à vos données depuis n'importe quel appareil",
-  "ia": "L'IA peut être intégrée pour :\n- Automatiser la classification et l'analyse des documents médicaux\n- Assister dans le tri et la priorisation des patients\n- Optimiser la gestion des stocks de matériel médical\n- Fournir des analyses prédictives\n- Améliorer la précision des diagnostics",
-  "sécurité": "Nous respectons rigoureusement :\n- La réglementation RGPD\n- Les normes de sécurité spécifiques aux données de santé\n- L'hébergement des données sur des serveurs agréés HDS\n- Le chiffrement des données\n- Les protocoles de sauvegarde sécurisés",
-  "rgpd": "Nous respectons rigoureusement :\n- La réglementation RGPD\n- Les normes de sécurité spécifiques aux données de santé\n- L'hébergement des données sur des serveurs agréés HDS\n- Le chiffrement des données\n- Les protocoles de sauvegarde sécurisés",
-  "support": "Nous proposons :\n- Une assistance technique disponible pendant les heures ouvrées\n- Un support par email, téléphone et visioconférence\n- Des formations à l'utilisation de nos solutions\n- Une documentation détaillée\n- Des mises à jour régulières",
-  "formation": "Oui, nous offrons :\n- Des sessions de formation initiale incluses\n- Des formations continues selon les besoins\n- Des tutoriels vidéo\n- Une documentation utilisateur complète\n- Un accompagnement personnalisé",
-  "tarif": "Nos tarifs sont adaptés aux besoins des professionnels de santé en libéral :\n- Formules d'abonnement mensuels ou annuels\n- Solutions personnalisables selon vos besoins\n- Devis gratuit sur demande\n- Possibilité de combiner plusieurs services",
-  "prix": "Nos tarifs sont adaptés aux besoins des professionnels de santé en libéral :\n- Formules d'abonnement mensuels ou annuels\n- Solutions personnalisables selon vos besoins\n- Devis gratuit sur demande\n- Possibilité de combiner plusieurs services"
-};
+import { Message } from '../types/chat';
+import { findBestMatch } from '../utils/chatUtils';
+import ChatMessage from './ChatMessage';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,29 +10,6 @@ const Chatbot = () => {
     { text: "Bonjour ! Je suis Noah, votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?", isUser: false }
   ]);
   const [inputText, setInputText] = useState("");
-  const { toast } = useToast();
-
-  const findBestMatch = (input: string) => {
-    const userInput = input.toLowerCase();
-    let bestMatch = null;
-    let highestScore = 0;
-
-    // Recherche des mots-clés dans la question
-    for (const [key, value] of Object.entries(FAQ_DATA)) {
-      const keywords = key.split(" ");
-      for (const keyword of keywords) {
-        if (userInput.includes(keyword.toLowerCase())) {
-          const currentScore = keyword.length / userInput.length;
-          if (currentScore > highestScore) {
-            highestScore = currentScore;
-            bestMatch = value;
-          }
-        }
-      }
-    }
-
-    return bestMatch || "Je ne comprends pas votre question. Pourriez-vous la reformuler ou choisir parmi les sujets suivants :\n- Qui êtes-vous\n- Services proposés\n- Sécurité des données\n- Tarifs\n- Support technique";
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,8 +21,6 @@ const Chatbot = () => {
     setMessages(prev => [...prev, userMessage, botResponse]);
     setInputText("");
   };
-
-  // ... keep existing code (JSX for the chat interface)
 
   return (
     <>
@@ -100,27 +57,7 @@ const Chatbot = () => {
 
           <div className="h-96 overflow-y-auto p-4 space-y-4">
             {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'} items-start gap-2`}
-              >
-                {!message.isUser && (
-                  <img 
-                    src="/lovable-uploads/5b19a21a-3a3a-407a-b7c1-7855b9325932.png"
-                    alt="Noah"
-                    className="w-8 h-8 rounded-full object-cover mt-1"
-                  />
-                )}
-                <div
-                  className={`max-w-[80%] p-3 rounded-lg ${
-                    message.isUser
-                      ? 'bg-gold text-white'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}
-                >
-                  <p className="whitespace-pre-line text-sm">{message.text}</p>
-                </div>
-              </div>
+              <ChatMessage key={index} message={message} />
             ))}
           </div>
 

@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 import HomeButton from "../components/HomeButton";
+import { useToast } from "@/components/ui/use-toast";
+import emailjs from '@emailjs/browser';
 import {
   Select,
   SelectContent,
@@ -7,8 +9,76 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState } from "react";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    budget: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleBudgetChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      budget: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID', // Vous devrez remplacer ceci
+        'YOUR_TEMPLATE_ID', // Vous devrez remplacer ceci
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          budget: formData.budget,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY' // Vous devrez remplacer ceci
+      );
+
+      if (result.text === 'OK') {
+        toast({
+          title: "Message envoyé !",
+          description: "Nous vous répondrons dans les plus brefs délais.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          budget: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
@@ -16,12 +86,14 @@ const Contact = () => {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-montserrat font-bold text-white mb-4">Contactez-nous</h1>
           <p className="text-gray-400 mb-8">Pour toute question ou demande, n'hésitez pas à nous contacter.</p>
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-white mb-2" htmlFor="name">Nom</label>
               <input
                 type="text"
                 id="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
                 required
               />
@@ -31,6 +103,8 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
                 required
               />
@@ -40,13 +114,15 @@ const Contact = () => {
               <input
                 type="tel"
                 id="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
                 required
               />
             </div>
             <div>
               <label className="block text-white mb-2" htmlFor="budget">Budget</label>
-              <Select>
+              <Select onValueChange={handleBudgetChange} value={formData.budget}>
                 <SelectTrigger className="w-full bg-gray-800 border-gold/20">
                   <SelectValue placeholder="Sélectionnez votre budget" />
                 </SelectTrigger>
@@ -63,6 +139,8 @@ const Contact = () => {
               <label className="block text-white mb-2" htmlFor="message">Message</label>
               <textarea
                 id="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-800 text-white border border-gold/20"
                 rows={4}
                 required
@@ -70,9 +148,10 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-semibold transition-colors duration-300"
+              disabled={isSubmitting}
+              className="bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-semibold transition-colors duration-300 disabled:opacity-50"
             >
-              Envoyer
+              {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
             </button>
           </form>
         </div>

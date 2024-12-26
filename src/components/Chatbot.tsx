@@ -8,16 +8,18 @@ interface Message {
 }
 
 const FAQ_DATA = {
-  "qui êtes-vous": "Je suis Noah, votre assistant virtuel spécialisé dans l'accompagnement des professionnels de santé en Outre-mer. Je représente une agence spécialisée dans l'automatisation et l'intégration d'intelligence artificielle pour les professionnels de santé en libéral. Notre expertise couvre la création de sites internet, le développement de solutions SaaS médicales, l'intégration d'IA, l'automatisation des processus, le développement sur mesure et le consulting.",
-  "pourquoi choisir": "L'automatisation et l'IA permettent d'optimiser significativement votre pratique en :\n- Réduisant le temps consacré aux tâches administratives\n- Améliorant la gestion des rendez-vous et le suivi des patients\n- Sécurisant vos données médicales\n- Facilitant la communication avec vos patients\n- Augmentant votre productivité tout en maintenant la qualité des soins",
-  "service de création": "Notre service inclut :\n- La conception d'un site web professionnel et responsive\n- L'intégration d'un système de prise de rendez-vous en ligne\n- La mise en place d'un espace patient sécurisé\n- L'optimisation pour le référencement local\n- L'hébergement sécurisé des données de santé\n- La maintenance et les mises à jour régulières",
-  "solution saas": "Notre solution SaaS médicale est un logiciel accessible via internet qui permet de :\n- Gérer votre agenda et vos rendez-vous\n- Tenir vos dossiers patients de manière sécurisée\n- Gérer votre facturation et vos documents administratifs\n- Assurer le suivi des patients\n- Accéder à vos données depuis n'importe quel appareil",
-  "intégration ia": "L'IA peut être intégrée pour :\n- Automatiser la classification et l'analyse des documents médicaux\n- Assister dans le tri et la priorisation des patients\n- Optimiser la gestion des stocks de matériel médical\n- Fournir des analyses prédictives\n- Améliorer la précision des diagnostics",
-  "sécurité données": "Nous respectons rigoureusement :\n- La réglementation RGPD\n- Les normes de sécurité spécifiques aux données de santé\n- L'hébergement des données sur des serveurs agréés HDS\n- Le chiffrement des données\n- Les protocoles de sauvegarde sécurisés",
-  "durée moyenne": "Les délais varient selon les services :\n- Création de site internet : 4-6 semaines\n- Intégration SaaS : 2-3 semaines\n- Automatisation des processus : 3-8 semaines selon la complexité\n- Solutions sur mesure : à définir selon le cahier des charges",
-  "support technique": "Nous proposons :\n- Une assistance technique disponible pendant les heures ouvrées\n- Un support par email, téléphone et visioconférence\n- Des formations à l'utilisation de nos solutions\n- Une documentation détaillée\n- Des mises à jour régulières",
-  "formations": "Oui, nous offrons :\n- Des sessions de formation initiale incluses\n- Des formations continues selon les besoins\n- Des tutoriels vidéo\n- Une documentation utilisateur complète\n- Un accompagnement personnalisé",
-  "tarifs": "Nos tarifs sont adaptés aux besoins des professionnels de santé en libéral :\n- Formules d'abonnement mensuels ou annuels\n- Solutions personnalisables selon vos besoins\n- Devis gratuit sur demande\n- Possibilité de combiner plusieurs services",
+  "temps": "Les délais varient selon les services :\n- Création de site internet : 4-6 semaines\n- Intégration SaaS : 2-3 semaines\n- Automatisation des processus : 3-8 semaines selon la complexité\n- Solutions sur mesure : à définir selon le cahier des charges",
+  "durée": "Les délais varient selon les services :\n- Création de site internet : 4-6 semaines\n- Intégration SaaS : 2-3 semaines\n- Automatisation des processus : 3-8 semaines selon la complexité\n- Solutions sur mesure : à définir selon le cahier des charges",
+  "site": "Notre service de création de site internet inclut :\n- La conception d'un site web professionnel et responsive\n- L'intégration d'un système de prise de rendez-vous en ligne\n- La mise en place d'un espace patient sécurisé\n- L'optimisation pour le référencement local\n- L'hébergement sécurisé des données de santé\n- La maintenance et les mises à jour régulières",
+  "qui": "Je suis Noah, votre assistant virtuel spécialisé dans l'accompagnement des professionnels de santé en Outre-mer. Je représente une agence spécialisée dans l'automatisation et l'intégration d'intelligence artificielle pour les professionnels de santé en libéral. Notre expertise couvre la création de sites internet, le développement de solutions SaaS médicales, l'intégration d'IA, l'automatisation des processus, le développement sur mesure et le consulting.",
+  "saas": "Notre solution SaaS médicale est un logiciel accessible via internet qui permet de :\n- Gérer votre agenda et vos rendez-vous\n- Tenir vos dossiers patients de manière sécurisée\n- Gérer votre facturation et vos documents administratifs\n- Assurer le suivi des patients\n- Accéder à vos données depuis n'importe quel appareil",
+  "ia": "L'IA peut être intégrée pour :\n- Automatiser la classification et l'analyse des documents médicaux\n- Assister dans le tri et la priorisation des patients\n- Optimiser la gestion des stocks de matériel médical\n- Fournir des analyses prédictives\n- Améliorer la précision des diagnostics",
+  "sécurité": "Nous respectons rigoureusement :\n- La réglementation RGPD\n- Les normes de sécurité spécifiques aux données de santé\n- L'hébergement des données sur des serveurs agréés HDS\n- Le chiffrement des données\n- Les protocoles de sauvegarde sécurisés",
+  "rgpd": "Nous respectons rigoureusement :\n- La réglementation RGPD\n- Les normes de sécurité spécifiques aux données de santé\n- L'hébergement des données sur des serveurs agréés HDS\n- Le chiffrement des données\n- Les protocoles de sauvegarde sécurisés",
+  "support": "Nous proposons :\n- Une assistance technique disponible pendant les heures ouvrées\n- Un support par email, téléphone et visioconférence\n- Des formations à l'utilisation de nos solutions\n- Une documentation détaillée\n- Des mises à jour régulières",
+  "formation": "Oui, nous offrons :\n- Des sessions de formation initiale incluses\n- Des formations continues selon les besoins\n- Des tutoriels vidéo\n- Une documentation utilisateur complète\n- Un accompagnement personnalisé",
+  "tarif": "Nos tarifs sont adaptés aux besoins des professionnels de santé en libéral :\n- Formules d'abonnement mensuels ou annuels\n- Solutions personnalisables selon vos besoins\n- Devis gratuit sur demande\n- Possibilité de combiner plusieurs services",
+  "prix": "Nos tarifs sont adaptés aux besoins des professionnels de santé en libéral :\n- Formules d'abonnement mensuels ou annuels\n- Solutions personnalisables selon vos besoins\n- Devis gratuit sur demande\n- Possibilité de combiner plusieurs services"
 };
 
 const Chatbot = () => {
@@ -30,19 +32,24 @@ const Chatbot = () => {
 
   const findBestMatch = (input: string) => {
     const userInput = input.toLowerCase();
-    let bestMatch = "";
+    let bestMatch = null;
     let highestScore = 0;
 
-    Object.keys(FAQ_DATA).forEach(key => {
-      const score = [...key].filter(char => userInput.includes(char)).length / key.length;
-      if (score > highestScore) {
-        highestScore = score;
-        bestMatch = key;
+    // Recherche des mots-clés dans la question
+    for (const [key, value] of Object.entries(FAQ_DATA)) {
+      const keywords = key.split(" ");
+      for (const keyword of keywords) {
+        if (userInput.includes(keyword.toLowerCase())) {
+          const currentScore = keyword.length / userInput.length;
+          if (currentScore > highestScore) {
+            highestScore = currentScore;
+            bestMatch = value;
+          }
+        }
       }
-    });
+    }
 
-    return highestScore > 0.3 ? FAQ_DATA[bestMatch as keyof typeof FAQ_DATA] : 
-      "Je ne comprends pas votre question. Pourriez-vous la reformuler ou choisir parmi les sujets suivants :\n- Qui êtes-vous\n- Services proposés\n- Sécurité des données\n- Tarifs\n- Support technique";
+    return bestMatch || "Je ne comprends pas votre question. Pourriez-vous la reformuler ou choisir parmi les sujets suivants :\n- Qui êtes-vous\n- Services proposés\n- Sécurité des données\n- Tarifs\n- Support technique";
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -55,6 +62,8 @@ const Chatbot = () => {
     setMessages(prev => [...prev, userMessage, botResponse]);
     setInputText("");
   };
+
+  // ... keep existing code (JSX for the chat interface)
 
   return (
     <>

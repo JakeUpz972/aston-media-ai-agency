@@ -8,24 +8,30 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-gold/20 via-black to-black" />
       
       <div className="container mx-auto px-4 pt-20 relative z-10">
-        <div className="max-w-3xl animate-fade-up">
+        <div className="max-w-4xl mx-auto animate-fade-up">
           <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-white mb-6">
             Transformez votre vision en{" "}
             <span className="text-gold">réalité digitale</span>
           </h1>
-          <div className="space-y-6 mb-8">
-            <p className="text-lg md:text-xl text-gray-300">
-              Expertise en création de sites web et solutions SAAS pour les professionnels de santé
+          <div className="space-y-8 mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 font-semibold">
+              <span className="text-gold">Expertise</span> en création de{" "}
+              <span className="text-gold font-bold">sites web professionnels</span> et{" "}
+              <span className="text-gold font-bold">solutions SAAS</span> pour le{" "}
+              <span className="text-gold font-bold">secteur médical</span>
             </p>
-            <div className="space-y-4 text-gray-300">
-              <p>
-                Nous sommes une entreprise dédiée à la création de solutions digitales innovantes pour les professionnels de santé.
+            <div className="space-y-6 text-gray-300 text-lg">
+              <p className="text-justify">
+                Spécialistes en <span className="text-gold font-semibold">développement web</span> et{" "}
+                <span className="text-gold font-semibold">solutions digitales innovantes</span> pour les professionnels de santé en Martinique.
               </p>
-              <p>
-                Notre équipe est composée d'experts passionnés par la technologie et l'innovation, prêts à vous accompagner dans votre transformation digitale.
+              <p className="text-justify">
+                Notre équipe d'<span className="text-gold font-semibold">experts en technologies web</span> vous accompagne dans votre{" "}
+                <span className="text-gold font-semibold">transformation numérique</span> avec passion et savoir-faire.
               </p>
-              <p>
-                Nous croyons en l'importance d'une présence en ligne efficace et nous nous engageons à fournir des services de haute qualité adaptés à vos besoins.
+              <p className="text-justify">
+                Engagés pour votre <span className="text-gold font-semibold">visibilité en ligne</span>, nous créons des{" "}
+                <span className="text-gold font-semibold">solutions sur mesure</span> qui répondent parfaitement à vos besoins.
               </p>
             </div>
           </div>

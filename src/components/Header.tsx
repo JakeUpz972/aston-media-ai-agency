@@ -11,7 +11,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -62,6 +62,8 @@ const Header = () => {
               src="/lovable-uploads/0a0634ac-81bb-4988-831f-17057df2b95e.png"
               alt="Aston Media"
               className="h-12 w-auto"
+              loading="eager"
+              decoding="async"
             />
           </Link>
 
@@ -72,13 +74,14 @@ const Header = () => {
           <button
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4">
+          <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-4">
             {menuItems.map(renderNavItem)}
           </nav>
         )}

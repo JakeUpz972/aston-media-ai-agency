@@ -101,6 +101,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-color: black; /* Fallback color while image loads */
   }
 
   body::before {
@@ -112,5 +113,6 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
+    will-change: transform; /* Optimise les performances de rendu */
   }
 }

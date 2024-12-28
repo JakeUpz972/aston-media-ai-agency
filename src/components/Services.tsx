@@ -8,42 +8,42 @@ const Services = () => {
       title: "Création de Sites Web",
       description:
         "Des sites web sur mesure, élégants et performants pour votre présence digitale.",
-      image: "photo-1581091226825-a6a2a5aee158",
+      image: "photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: <Database className="w-12 h-12 text-gold" />,
       title: "Solution SAAS Médicale",
       description:
         "Logiciel spécialisé pour les professionnels de santé libéraux.",
-      image: "photo-1581092795360-fd1ca04f0952",
+      image: "photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: <Brain className="w-12 h-12 text-gold" />,
       title: "Intégration IA",
       description:
         "Solutions d'intelligence artificielle innovantes pour optimiser vos processus métier.",
-      image: "photo-1485827404703-89b55fcc595e",
+      image: "photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: <Cog className="w-12 h-12 text-gold" />,
       title: "Automatisation des Processus",
       description:
         "Optimisez votre efficacité opérationnelle grâce à l'automatisation intelligente.",
-      image: "photo-1518432031352-d6fc5c10da5a",
+      image: "photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: <Code className="w-12 h-12 text-gold" />,
       title: "Développement sur Mesure",
       description:
         "Solutions logicielles personnalisées répondant précisément à vos besoins.",
-      image: "photo-1555066931-4365d14bab8c",
+      image: "photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     },
     {
       icon: <Briefcase className="w-12 h-12 text-gold" />,
       title: "Consulting",
       description:
         "Accompagnement stratégique pour votre transformation digitale et l'intégration des nouvelles technologies.",
-      image: "photo-1483058712412-4245e9b90334",
+      image: "photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -86,12 +86,14 @@ const Services = () => {
               key={index}
               className="bg-gray-900 rounded-lg border border-gold/20 hover:border-gold/40 transition-all duration-300 overflow-hidden"
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full">
                 <AspectRatio ratio={16 / 9}>
                   <img
                     src={`https://images.unsplash.com/${service.image}`}
                     alt={service.title}
                     className="object-cover w-full h-full"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </AspectRatio>
                 <div className="absolute inset-0 bg-black/50" />

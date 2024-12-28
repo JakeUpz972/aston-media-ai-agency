@@ -17,16 +17,16 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-gray-300 font-semibold">
               <span className="text-gold">Expertise</span> en création de{" "}
               <span className="text-gold font-bold">sites web professionnels</span> et{" "}
-              <span className="text-gold font-bold">solutions SAAS</span> pour le{" "}
+              <span className="text-gold font-bold">solutions digitales</span> pour le{" "}
               <span className="text-gold font-bold">secteur médical</span>
             </p>
             <div className="space-y-6 text-gray-300 text-lg">
               <p className="text-justify">
                 Spécialistes en <span className="text-gold font-semibold">développement web</span> et{" "}
-                <span className="text-gold font-semibold">solutions digitales innovantes</span> pour les professionnels de santé en Martinique.
+                <span className="text-gold font-semibold">solutions digitales innovantes</span> pour les professionnels de santé en Martinique et en Outre-mer.
               </p>
               <p className="text-justify">
-                Notre équipe d'<span className="text-gold font-semibold">experts en technologies web</span> vous accompagne dans votre{" "}
+                Notre équipe d'<span className="text-gold font-semibold">experts en technologies web et outils IA</span> vous accompagne dans votre{" "}
                 <span className="text-gold font-semibold">transformation numérique</span> avec passion et savoir-faire.
               </p>
               <p className="text-justify">

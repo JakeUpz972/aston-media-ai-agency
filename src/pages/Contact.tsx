@@ -48,6 +48,7 @@ const Contact = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
+          to_email: 'contact@astonmedia-agency.com',
           phone: formData.phone,
           budget: formData.budget,
           message: formData.message,

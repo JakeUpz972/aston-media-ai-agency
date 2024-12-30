@@ -97,11 +97,7 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: url('/lovable-uploads/7e00820f-4b5e-441c-af0f-96b5e5255965.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: black; /* Fallback color while image loads */
+    background-color: black;
   }
 
   body::before {

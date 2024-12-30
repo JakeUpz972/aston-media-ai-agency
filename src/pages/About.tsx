@@ -36,6 +36,18 @@ const About = () => {
                 <li>
                   <span className="text-gold font-semibold">Logiciel SaaS tout-en-un :</span> Une solution intuitive, accessible par abonnement, pour simplifier la gestion de votre activité (agenda, facturation, gestion des dossiers patients, et plus).
                 </li>
+                <li>
+                  <span className="text-gold font-semibold">Intégration IA :</span> Des solutions d'intelligence artificielle innovantes pour optimiser vos processus métier et améliorer la qualité de vos services.
+                </li>
+                <li>
+                  <span className="text-gold font-semibold">Automatisation des processus :</span> Optimisation de votre efficacité opérationnelle grâce à des solutions d'automatisation intelligentes et personnalisées.
+                </li>
+                <li>
+                  <span className="text-gold font-semibold">Développement sur mesure :</span> Création de solutions logicielles personnalisées répondant précisément à vos besoins spécifiques.
+                </li>
+                <li>
+                  <span className="text-gold font-semibold">Consulting :</span> Accompagnement stratégique pour votre transformation digitale et l'intégration des nouvelles technologies dans votre pratique.
+                </li>
               </ul>
             </div>
 
